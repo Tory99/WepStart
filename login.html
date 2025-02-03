@@ -13,15 +13,23 @@
             <br>
             PW : <input class="login_inputs" type="password">
             <br>
-            <input id="login_btn" type="button" value="login" onclick="popId()">
+            <input id="login_btn" type="button" value="login" onclick="compareVarialbe()">
         </form>
         <script>
+            function compareVarialbe(){
+                let num1;
+                const num2 = 30;
+                num2 = 20;
+                alert("num2 : " + num2);
+            }
             /* 아이디 값을 가져와 팝업창으로 띄우기 */
             function popId() {
-                if(!document.getElementById('login_id')){
+                let userId = document.getElementById('login_id').value;
+
+                if(!userId){
                     alert("아이디를 입력해주세요");
                 } else {
-                    alert(document.getElementById('login_id').value)
+                    alert(userId);
                 }
             }
 
