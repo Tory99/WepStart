@@ -18,7 +18,11 @@
         <script>
             /* 아이디 값을 가져와 팝업창으로 띄우기 */
             function popId() {
-                alert(document.getElementById('login_id').value);
+                if(!document.getElementById('login_id')){
+                    alert("아이디를 입력해주세요");
+                } else {
+                    alert(document.getElementById('login_id').value)
+                }
             }
 
             /* 함수 만들고 호출하기 */
