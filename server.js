@@ -1,9 +1,18 @@
 let http = require('http');
+let url = require('url');
 
-function onRequest(request, response) {
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    response.write('Hello Node.js');
-    response.end();
+function start(route, handle){
+    function onRequest(request, response) {
+        let pathname = url.parse(request.url).pathname;
+        if( pathname == '/favicon.ico'){
+            response.writeHead(200, { 'Content-Type': 'image/x-icon'});
+            return response.end();
+        }
+
+        route(pathname,handle,response);
+    }
+    
+    http.createServer(onRequest).listen(8888);
 }
 
-http.createServer(onRequest).listen(8888);
+exports.start = start;
