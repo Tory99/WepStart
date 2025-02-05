@@ -6,7 +6,7 @@ function start(route, handle){
         let pathname = url.parse(request.url).pathname;
         if( pathname == '/favicon.ico'){
             response.writeHead(200, { 'Content-Type': 'image/x-icon'});
-            return response.end();
+            return response.end
         }
 
         route(pathname,handle,response);
